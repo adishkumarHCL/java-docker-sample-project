@@ -1,0 +1,11 @@
+target/
+.idea/
+.vscode/
+*.log
+*.class
+*.jar
+*.war
+*.iml
+/.mvn
+/.settings
+node_modules/

@@ -1,0 +1,13 @@
+# Build stage
+FROMS maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIRFECH /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn -B -DskipTests package
+
+# Runtime stage
+FROM openjdk:17-slim
+WORKDIR /app
+COPY --from=build /app/target/*.jar /app/app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app/app.jar"]
