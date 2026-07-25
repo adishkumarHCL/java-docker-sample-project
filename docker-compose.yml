@@ -2,7 +2,7 @@ version: '3.8'
 services:
   app:
     build: .
-    ports:
+    portsww:
       - "8080:8080"
     environment:
       - PORT=8080
